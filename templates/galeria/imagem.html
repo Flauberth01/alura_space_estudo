@@ -9,17 +9,21 @@
                             alt="imagem nao encontrada">
                 {% else %}
                     <img class="imagem__imagem" src="{{ imagem.foto.url }}">
+                {% endif %}
                     <div class="imagem__info">
                         <div class="imagem__texto">
                             <p class="imagem__titulo">{{ imagem.nome }}</p>
                             <p class="imagem__descricao">{{ imagem.legenda }}</p>
                             <p class="imagem__texto">{{ imagem.descricao }}</p>
                         </div>
+                        <div>
+                            <a href="{% url 'editar_imagem' imagem.id %}"><button class="btn btn-success col-12" style="padding: top 5px; margin-bottom: 5px;">Editar</button></a>
+                            <a href="{% url 'deletar_imagem' imagem.id %}"><button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button></a>
+                        </div>
                     </div>
-                {% endif %}
-            </div>
+                 </div>
+            </section>
         </section>
-</section>
-</main>
+    </main>
 </div>
 {% endblock %}
